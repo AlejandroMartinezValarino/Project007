@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+use App\Http\Controllers\TablaController;
 
 Route::get('/', function () {
     return view('login');
@@ -19,3 +20,5 @@ Route::get('/', function () {
 Route::get('menu', function () {
     return view('menu');
 });
+Route::get('horario', [TablaController::class, 'showTable']);
+Route::post('horario', [TablaController::class, 'showTable'])->name('showTable');
