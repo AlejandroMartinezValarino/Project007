@@ -7,17 +7,12 @@
 
     <form method="POST" action="{{ route('showTable') }}">
         @csrf
-        <div>
             <x-label for="codCurso">Código del Curso:</x-label>
             <x-input type="text" id="codCurso" name="codCurso" required/>
-        </div>
-        <div>
             <x-label for="codOe">Código Oferta Educativa:</x-label>
             <x-input type="text" id="codOe" name="codOe" required/>
-        </div>
-        <div>
+            <x-link href="./menu">Menú</x-link>
             <x-button>Cambiar Horario</x-button>
-        </div>
     </form>
 
     @component('components.table', ['data' => $data])
