@@ -10,7 +10,6 @@ use Illuminate\Routing\Controller as BaseController;
 
 class TablaController extends Controller
 {
-    use AuthorizesRequests, ValidatesRequests;
 
     public function showTable(Request $request)
     {

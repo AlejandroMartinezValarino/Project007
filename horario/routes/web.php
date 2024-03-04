@@ -47,3 +47,20 @@ Route::post('horario', function (Request $request) {
     $tablaController = new TablaController();
     return $tablaController->showTable($request);
 })->name('showTable');
+
+Route::get('/oferta', function () {
+    if (!session('logged_in')) {
+        return redirect()->route('showLogin');
+    }
+    return view('oferta');
+})->name('oferta');
+
+Route::post('/oferta', function (Request $request, OfertaController $ofertaController) {
+    if (!session('logged_in')) {
+        return redirect()->route('showLogin');
+    }
+    $ofertaController->insertOferta($request);
+    return view('oferta');
+})->name('oferta');
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
