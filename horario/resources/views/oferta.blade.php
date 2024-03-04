@@ -9,6 +9,7 @@
     <x-wrapper>
         <x-slot name="title">Oferta Educativa</x-slot>
         <form action="{{ route('oferta') }}" method="POST">
+        @csrf
             <div>
                 <x-label>Código Oferta</x-label>
                 <x-input type="text" name="codOe"/>
@@ -33,6 +34,20 @@
             <x-button>
                 Enviar
             </x-button>
+            
+        <x-link href="./menu">Menú</x-link>
         </form>
+        @if (session('success'))
+        <x-alert-info title="Inserción">
+            {{ session('success') }}
+        </x-alert-info>
+        @endif
+
+        @if (session('error'))
+            <x-alert-danger title="Danger">
+                {{ session('error') }}
+            </x-alert-danger>
+        @endif
+
     </x-wrapper>
 @endsection

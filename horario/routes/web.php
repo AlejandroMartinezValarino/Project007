@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\TablaController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\OfertaController;
 
 Route::get('/login', function () {
     return view('login');

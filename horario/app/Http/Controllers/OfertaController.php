@@ -23,9 +23,10 @@ class OfertaController extends Controller
                 ['codOe'], 
                 ['nombre', 'descripcion', 'tipo', 'fechaLey']
             );
+            return redirect()->route('oferta')->with('success', 'La inserción se ha realizado correctamente.');
         } catch (\Exception $e) {
             report($e);
-            return false;
+            return redirect()->route('oferta')->with('error', 'La inserción no se ha podido realizar. Error: ' . $e->getMessage());
         }
     }
 }
