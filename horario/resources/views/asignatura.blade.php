@@ -14,6 +14,14 @@
                 <x-label>Nombre</x-label>
                 <x-input type="text" name="nombre"/>
             </div>
+            <div class="mt-4">
+                <x-label>Horas Semanales</x-label>
+                <x-input type="text" name="horasSemanales"/>
+            </div>
+            <div class="mt-4">
+                <x-label>Horas Totales</x-label>
+                <x-input type="text" name="horasTotales"/>
+            </div>
             <x-button>
                 Enviar
             </x-button>

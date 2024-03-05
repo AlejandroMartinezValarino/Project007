@@ -11,14 +11,16 @@ class AsignaturaController extends Controller
     {
         $validated = $request->validate([
             'codAsig' => 'required|max:10',
-            'nombre' => 'required'
+            'nombre' => 'required',
+            'horasSemanales' => 'required',
+            'horasTotales' => 'required'
         ]);
 
         try {
             DB::table('asignatura')->upsert(
-                ['codAsig' => $validated['codAsig'], 'nombre' => $validated['nombre']],
+                ['codAsig' => $validated['codAsig'], 'nombre' => $validated['nombre'],'horasSemanales' => $validated['horasSemanales'],'horasTotales' => $validated['horasTotales']],
                 ['codAsig'], 
-                ['nombre']
+                ['nombre','horasSemanales','horasTotales']
             );
             return redirect()->route('asignatura')->with('success', 'La inserción se ha realizado correctamente.');
         } catch (\Exception $e) {
