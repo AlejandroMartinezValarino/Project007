@@ -10,10 +10,10 @@ class OfertaController extends Controller
     public function insertOferta(Request $request)
     {
         $validated = $request->validate([
-            'nombre' => 'required|max:255',
-            'descripcion' => 'required',
+            'nombre' => 'required|max:70',
+            'descripcion' => 'required|max:255',
             'inicio' => 'required|date',
-            'codOe' => 'required',
+            'codOe' => 'required|max:3',
             'tipo' => 'required'
         ]);
 
