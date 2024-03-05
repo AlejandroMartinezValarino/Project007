@@ -64,4 +64,19 @@ Route::post('/oferta', function (Request $request, OfertaController $ofertaContr
     return view('oferta');
 })->name('oferta');
 
+Route::get('/profesor', function () {
+    if (!session('logged_in')) {
+        return redirect()->route('showLogin');
+    }
+    return view('profesor');
+})->name('profesor');
+
+Route::post('/profesor', function (Request $request, ProfesorController $profesorController) {
+    if (!session('profesor')) {
+        return redirect()->route('showLogin');
+    }
+    $profesorController->insertProfesor($request);
+    return view('profesor');
+})->name('profesor');
+
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
