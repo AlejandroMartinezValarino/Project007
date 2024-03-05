@@ -9,7 +9,7 @@
       <x-link href="#">Curso</x-link>
       <x-link href="./profesor">Profesor</x-link>
       <x-link href="#">Tramo Horario</x-link>
-      <x-link href="#">Asignatura</x-link>
+      <x-link href="./asignatura">Asignatura</x-link>
       <x-link href="./horario">Horario</x-link>
     </x-grid>
     <x-logout/>

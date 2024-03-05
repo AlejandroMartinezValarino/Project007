@@ -17,6 +17,7 @@ use App\Http\Controllers\TablaController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OfertaController;
 use App\Http\Controllers\ProfesorController;
+use App\Http\Controllers\AsignaturaController;
 
 Route::get('/login', function () {
     return view('login');
@@ -79,5 +80,20 @@ Route::post('/profesor', function (Request $request, ProfesorController $profeso
     $profesorController->insertProfesor($request);
     return view('profesor');
 })->name('profesor');
+
+Route::get('/asignatura', function () {
+    if (!session('logged_in')) {
+        return redirect()->route('showLogin');
+    }
+    return view('asignatura');
+})->name('asignatura');
+
+Route::post('/asignatura', function (Request $request, AsignaturaController $asignaturaController) {
+    if (!session('logged_in')) {
+        return redirect()->route('showLogin');
+    }
+    $asignaturaController->insertAsignatura($request);
+    return view('asignatura');
+})->name('asignatura');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
