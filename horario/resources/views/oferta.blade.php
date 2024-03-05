@@ -43,10 +43,15 @@
         </x-alert-info>
         @endif
 
-        @if (session('error'))
-            <x-alert-danger title="Danger">
-                {{ session('error') }}
-            </x-alert-danger>
+        @if ($errors->any())
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>
+                    <x-alert-danger title="Danger">
+                        {{ $error }}
+                    </x-alert-danger></li>
+            @endforeach
+        </ul>
         @endif
 
     </x-wrapper>
