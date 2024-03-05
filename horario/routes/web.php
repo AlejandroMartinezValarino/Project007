@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\TablaController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OfertaController;
+use App\Http\Controllers\ProfesorController;
 
 Route::get('/login', function () {
     return view('login');
@@ -72,7 +73,7 @@ Route::get('/profesor', function () {
 })->name('profesor');
 
 Route::post('/profesor', function (Request $request, ProfesorController $profesorController) {
-    if (!session('profesor')) {
+    if (!session('logged_in')) {
         return redirect()->route('showLogin');
     }
     $profesorController->insertProfesor($request);

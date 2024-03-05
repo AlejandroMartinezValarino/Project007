@@ -4,7 +4,7 @@
 @section('content')
     <x-wrapper>
         <x-slot name="title">Profesores</x-slot>
-        <form action="{{ route('oferta') }}" method="POST">
+        <form action="{{ route('profesor') }}" method="POST">
         @csrf
             <div>
                 <x-label>Código Profesor</x-label>
@@ -33,10 +33,15 @@
         </x-alert-info>
         @endif
 
-        @if (session('error'))
-            <x-alert-danger title="Danger">
-                {{ session('error') }}
-            </x-alert-danger>
+        @if ($errors->any())
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>
+                    <x-alert-danger title="Danger">
+                        {{ $error }}
+                    </x-alert-danger></li>
+            @endforeach
+        </ul>
         @endif
     </x-wrapper>
 @endsection
