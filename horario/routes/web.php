@@ -18,7 +18,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OfertaController;
 use App\Http\Controllers\ProfesorController;
 use App\Http\Controllers\AsignaturaController;
-use App\Http\Controllers\cursoController;
+use App\Http\Controllers\CursoController;
+use App\Http\Controllers\TramoController;
 
 Route::get('/login', function () {
     return view('login');
@@ -111,5 +112,21 @@ Route::post('/curso', function (Request $request, CursoController $cursoControll
     $cursoController->insertCurso($request);
     return view('curso');
 })->name('curso');
+
+Route::get('/tramo', function () {
+    if (!session('logged_in')) {
+        return redirect()->route('showLogin');
+    }
+    $tramoController = new TramoController(); 
+    return $tramoController->showTramo();
+})->name('tramo');
+
+Route::post('/tramo', function (Request $request, TramoController $tramoController) {
+    if (!session('logged_in')) {
+        return redirect()->route('showLogin');
+    }
+    $tramoController->insertTramo($request);
+    return $tramoController->showTramo();
+})->name('tramo');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
