@@ -57,7 +57,8 @@ Route::get('/oferta', function () {
     if (!session('logged_in')) {
         return redirect()->route('showLogin');
     }
-    return view('oferta');
+    $ofertaController = new OfertaController();
+    return $ofertaController->showOferta();
 })->name('oferta');
 
 Route::post('/oferta', function (Request $request, OfertaController $ofertaController) {
@@ -65,14 +66,15 @@ Route::post('/oferta', function (Request $request, OfertaController $ofertaContr
         return redirect()->route('showLogin');
     }
     $ofertaController->insertOferta($request);
-    return view('oferta');
+    return $ofertaController->showOferta();
 })->name('oferta');
 
 Route::get('/profesor', function () {
     if (!session('logged_in')) {
         return redirect()->route('showLogin');
     }
-    return view('profesor');
+    $profesorController = new ProfesorController();
+    return $profesorController->showProf();
 })->name('profesor');
 
 Route::post('/profesor', function (Request $request, ProfesorController $profesorController) {
@@ -80,14 +82,15 @@ Route::post('/profesor', function (Request $request, ProfesorController $profeso
         return redirect()->route('showLogin');
     }
     $profesorController->insertProfesor($request);
-    return view('profesor');
+    return $profesorController->showProf();
 })->name('profesor');
 
 Route::get('/asignatura', function () {
     if (!session('logged_in')) {
         return redirect()->route('showLogin');
     }
-    return view('asignatura');
+    $asignaturaController = new AsignaturaController();
+    return $asignaturaController->showAsignatura();
 })->name('asignatura');
 
 Route::post('/asignatura', function (Request $request, AsignaturaController $asignaturaController) {
@@ -95,14 +98,15 @@ Route::post('/asignatura', function (Request $request, AsignaturaController $asi
         return redirect()->route('showLogin');
     }
     $asignaturaController->insertAsignatura($request);
-    return view('asignatura');
+    return $asignaturaController->showAsignatura();
 })->name('asignatura');
 
 Route::get('/curso', function () {
     if (!session('logged_in')) {
         return redirect()->route('showLogin');
     }
-    return view('curso');
+    $cursoController = new CursoController();
+    return $cursoController->showCurso();
 })->name('curso');
 
 Route::post('/curso', function (Request $request, CursoController $cursoController) {
@@ -110,7 +114,7 @@ Route::post('/curso', function (Request $request, CursoController $cursoControll
         return redirect()->route('showLogin');
     }
     $cursoController->insertCurso($request);
-    return view('curso');
+    return $cursoController->showCurso();
 })->name('curso');
 
 Route::get('/tramo', function () {

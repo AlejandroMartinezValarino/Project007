@@ -27,4 +27,17 @@ class CursoController extends Controller
             return redirect()->route('curso')->with('error', 'La inserción no se ha podido realizar. Error: ' . $e->getMessage());
         }
     }
+
+    public function showCurso()
+    {
+        $cursos = DB::table('curso')->get();
+
+        if ($cursos->isNotEmpty()) {
+            $headers = array_keys((array) $cursos->first());
+        } else {
+            $headers = [];
+        }
+
+        return view('curso', ['rows' => $cursos, 'headers' => $headers]);
+    }
 }

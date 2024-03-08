@@ -28,4 +28,17 @@ class ProfesorController extends Controller
             return redirect()->route('profesor')->with('error', 'La inserción no se ha podido realizar. Error: ' . $e->getMessage());
         }
     }
+
+    public function showProf()
+    {
+        $profesores = DB::table('profesor')->get();
+
+        if ($profesores->isNotEmpty()) {
+            $headers = array_keys((array) $profesores->first());
+        } else {
+            $headers = [];
+        }
+
+        return view('profesor', ['rows' => $profesores, 'headers' => $headers]);
+    }
 }

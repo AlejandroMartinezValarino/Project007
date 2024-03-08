@@ -28,4 +28,16 @@ class AsignaturaController extends Controller
             return redirect()->route('asignatura')->with('error', 'La inserción no se ha podido realizar. Error: ' . $e->getMessage());
         }
     }
+    public function showAsignatura()
+    {
+        $asignaturas = DB::table('asignatura')->get();
+
+        if ($asignaturas->isNotEmpty()) {
+            $headers = array_keys((array) $asignaturas->first());
+        } else {
+            $headers = [];
+        }
+
+        return view('asignatura', ['rows' => $asignaturas, 'headers' => $headers]);
+    }
 }

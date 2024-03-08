@@ -29,4 +29,16 @@ class OfertaController extends Controller
             return redirect()->route('oferta')->with('error', 'La inserción no se ha podido realizar. Error: ' . $e->getMessage());
         }
     }
+    public function showOferta()
+    {
+        $ofertas = DB::table('ofertaeducativa')->get();
+
+        if ($ofertas->isNotEmpty()) {
+            $headers = array_keys((array) $ofertas->first());
+        } else {
+            $headers = [];
+        }
+
+        return view('profesor', ['rows' => $ofertas, 'headers' => $headers]);
+    }
 }
