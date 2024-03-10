@@ -1,13 +1,13 @@
-<table class="table-auto w-full">
-    <thead class="bg-blue-400">
+<table class="table-auto w-full text-center">
+    <thead class="bg-blue-400 text-blue-800">
         <tr>
-            <th>Hora Inicio</th>
-            <th>Hora Fin</th>
-            <th>Lunes</th>
-            <th>Martes</th>
-            <th>Miércoles</th>
-            <th>Jueves</th>
-            <th>Viernes</th>
+            <x-th>Hora Inicio</x-th>
+            <x-th>Hora Fin</x-th>
+            <x-th>Lunes</x-th>
+            <x-th>Martes</x-th>
+            <x-th>Miércoles</x-th>
+            <x-th>Jueves</x-th>
+            <x-th>Viernes</x-th>
         </tr>
     </thead>
     <tbody>
@@ -26,9 +26,9 @@
                     </tr> <!-- Cerrar la fila anterior -->
                 @endif
 
-                <tr class="hover:bg-blue-200">
-                    <td>{{ $row->horaInicio }}</td>
-                    <td>{{ $row->horaFin }}</td>
+                <tr class="hover:bg-blue-200 bg-blue-100">
+                    <x-td>{{ $row->horaInicio }}</x-td>
+                    <x-td>{{ $row->horaFin }}</x-td>
 
                     @if ($flag)
                         @php
@@ -36,12 +36,12 @@
                         @endphp
                     @else
                         @if (!empty($nextCodAsig))
-                            <td>*{{ $row->codAsig }}</td>
+                            <x-td>*{{ $row->codAsig }}</x-td>
                             @php
                                 $nextCodAsig = "";
                             @endphp
                         @else
-                            <td>{{ $row->codAsig }}</td>
+                            <x-td>{{ $row->codAsig }}</x-td>
                         @endif
                     @endif
 
@@ -55,12 +55,12 @@
                     @endphp
                 @else
                     @if (!empty($nextCodAsig))
-                        <td>*{{ $row->codAsig }}</td>
+                        <x-td>*{{ $row->codAsig }}</x-td>
                         @php
                             $nextCodAsig = "";
                         @endphp
                     @else
-                        <td>{{ $row->codAsig }}</td>
+                        <x-td>{{ $row->codAsig }}</x-td>
                     @endif
                 @endif
             @endif

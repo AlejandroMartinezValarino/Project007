@@ -11,7 +11,7 @@
             <x-input type="text" id="codCurso" name="codCurso" required/>
             <x-label for="codOe">Código Oferta Educativa:</x-label>
             <x-input type="text" id="codOe" name="codOe" required/>
-            <x-link href="./menu">Menú</x-link>
+            <x-menu-link href="./menu">Menú</x-menu-link>
             <x-button>Cambiar Horario</x-button>
     </form>
 

@@ -30,7 +30,9 @@ class CursoController extends Controller
 
     public function showCurso()
     {
-        $cursos = DB::table('curso')->get();
+        $cursos = DB::table('curso')
+        ->orderBy('codOe', 'asc')
+        ->get();
 
         if ($cursos->isNotEmpty()) {
             $headers = array_keys((array) $cursos->first());

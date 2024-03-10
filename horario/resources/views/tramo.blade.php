@@ -35,9 +35,9 @@
                               :options="$dias" :selected="$diaSeleccionado" />
                 </div>
                 <x-button>
-                    Enviar
+                    Insertar
                 </x-button>
-                <x-link href="./menu">Menú</x-link>
+                <x-menu-link href="./menu">Menú</x-menu-link>
             </form>
             </div>
             <button class="mt-2 mb-2 px-4 py-2 bg-blue-800 rounded text-xs text-white uppercase hover:bg-blue-700" id="toggleButton">Alternar vista</button>

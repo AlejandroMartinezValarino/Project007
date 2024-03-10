@@ -24,9 +24,10 @@
                 <li>
                     <x-alert-danger title="Danger">
                         {{ $error }}
-                    </x-alert-danger></li>
+                    </x-alert-danger>
+                </li>
             @endforeach
         </ul>
-        @endif
+      @endif
 </x-wrapper>
 @endsection
