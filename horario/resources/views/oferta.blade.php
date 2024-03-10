@@ -13,7 +13,7 @@
         @csrf
             <div>
                 <x-label>Código Oferta</x-label>
-                <x-input type="text" name="codOe"/>
+                <x-input type="text" name="codOe" maxlength="6"/>
             </div>
             <div class="mt-4">
                 <x-label>Nombre</x-label>
@@ -39,7 +39,7 @@
         <x-menu-link href="./menu">Menú</x-menu-link>
         </form>
         </div>
-        <button class="mt-2 mb-2 px-4 py-2 bg-blue-800 rounded text-xs text-white uppercase hover:bg-blue-700" id="toggleButton">Alternar vista</button>
+        <button class="mt-2 mb-2 px-4 py-2 bg-blue-800 rounded text-xs text-white uppercase hover:bg-blue-700" id="toggleButton">Mostrar Tabla</button>
         @if (session('success'))
         <x-alert-info title="Inserción">
             {{ session('success') }}
