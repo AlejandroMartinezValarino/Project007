@@ -39,6 +39,6 @@ class OfertaController extends Controller
             $headers = [];
         }
 
-        return view('profesor', ['rows' => $ofertas, 'headers' => $headers]);
+        return view('oferta', ['rows' => $ofertas, 'headers' => $headers]);
     }
 }
